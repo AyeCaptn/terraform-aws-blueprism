@@ -7,7 +7,7 @@ variable "tags" {
   default     = {}
 }
 
-variable "blueprism_installer_path" { 
+variable "blueprism_installer_path" {
   description = "The complete url to download Blue Prism installer file from"
 }
 
@@ -15,13 +15,13 @@ variable "blueprism_license_path" {
   description = "The complete url to download Blue Prism license file from"
 }
 
-variable "login_agent_installer_path" { 
-  description = "The complete url to download Blue Prism login agent installer file from and install on Resource PC" 
+variable "login_agent_installer_path" {
+  description = "The complete url to download Blue Prism login agent installer file from and install on Resource PC"
   default     = ""
 }
 
-variable "mapi_installer_path" { 
-  description = "The complete url to download Blue Prism MAPI Ex installer file from and install on Resource PC" 
+variable "mapi_installer_path" {
+  description = "The complete url to download Blue Prism MAPI Ex installer file from and install on Resource PC"
   default     = ""
 }
 
@@ -47,7 +47,8 @@ variable "bp_password" {
 
 variable "create_new_db" {
   description = "Boolean flag to setup new database for Blue Prism app. It should be set to 'true' for the first time while trying to setup database"
-  default     = false }
+  default     = false
+}
 
 variable "db_name" {
   description = "Name of the database that should be used to connect with Blue Prism appserver"
@@ -87,7 +88,6 @@ variable "db_changes_apply_immediately" {
 
 variable "db_instance_class" {
   description = "RDS Database instance class to be used for Blue Prism database"
-
 }
 
 variable "db_subnet_group_name" {
@@ -122,7 +122,8 @@ variable "db_deletion_protection" {
 
 variable "db_backup_retention_period" {
   description = "Database backup retention period for RDS"
-  default     = 0 }
+  default     = 0
+}
 
 variable "db_backup_window" {
   description = "Database backup window for RDS in UTC"
@@ -139,8 +140,8 @@ variable "db_sg_policy_name" {
   default     = "blueprism-db-sg-policy"
 }
 
-variable "db_sg_ingress_cidr" { 
-  type        = "list"
+variable "db_sg_ingress_cidr" {
+  type        = list(string)
   description = "CIDR IP range from which Blue Prism database can be accessed directly"
   default     = []
 }
@@ -160,13 +161,13 @@ variable "appserver_windows_administrator_password" {
 }
 
 variable "appserver_windows_custom_user_username" {
-  type        = "list"
+  type        = list(string)
   description = "List of custom usernames for Windows login that needs to be created on appserver"
   default     = []
 }
 
 variable "appserver_windows_custom_user_password" {
-  type        = "list"
+  type        = list(string)
   description = "List of passwords for Windows login mapped to custom usernames for appserver"
   default     = []
 }
@@ -183,11 +184,11 @@ variable "appserver_disable_api_termination" {
 
 variable "appserver_root_volume_size" {
   description = "Root volume size for Blue Prism appserver in GB"
-  default     = 30 
+  default     = 30
 }
 
-variable "appserver_private_ip" { 
-  type        = "list"
+variable "appserver_private_ip" {
+  type        = list(string)
   description = "List of Private IPs for the Blue Prism appserver. This module will automatically generate the count value based on the number of elements in the list"
 }
 
@@ -201,14 +202,14 @@ variable "appserver_port" {
   default     = "8199"
 }
 
-variable "appserver_sg_ingress_cidr" { 
-  type        = "list"
+variable "appserver_sg_ingress_cidr" {
+  type        = list(string)
   description = "CIDR IP range from which Blue Prism appserver can be accessed directly"
-  default     = [ "0.0.0.0/0" ]
+  default     = ["0.0.0.0/0"]
 }
 
 variable "appserver_custom_powershell_commands" {
-  type        = "list"
+  type        = list(string)
   description = "List of custom powershell commands you would like to run while creating a Blue Prism Appserver machine. These will only be executed once when a new instance is created"
   default     = []
 }
@@ -228,13 +229,13 @@ variable "client_windows_administrator_password" {
 }
 
 variable "client_windows_custom_user_username" {
-  type        = "list"
+  type        = list(string)
   description = "List of custom usernames for Windows login that needs to be created on client"
   default     = []
 }
 
 variable "client_windows_custom_user_password" {
-  type        = "list"
+  type        = list(string)
   description = "List of passwords for Windows login mapped to custom usernames for client"
   default     = []
 }
@@ -251,11 +252,11 @@ variable "client_disable_api_termination" {
 
 variable "client_root_volume_size" {
   description = "Root volume size for Blue Prism client in GB"
-  default     = 30 
+  default     = 30
 }
 
-variable "client_private_ip" { 
-  type        = "list"
+variable "client_private_ip" {
+  type        = list(string)
   description = "List of Private IPs for the Blue Prism client. This module will automatically generate the count value based on the number of elements in the list"
 }
 
@@ -264,14 +265,14 @@ variable "client_key_name" {
   default     = ""
 }
 
-variable "client_sg_ingress_cidr" { 
-  type        = "list"
+variable "client_sg_ingress_cidr" {
+  type        = list(string)
   description = "CIDR IP range from which Blue Prism client can be accessed directly"
-  default     = [ "0.0.0.0/0" ]
+  default     = ["0.0.0.0/0"]
 }
 
 variable "client_custom_powershell_commands" {
-  type        = "list"
+  type        = list(string)
   description = "List of custom powershell commands you would like to run while creating a Blue Prism Interative Client machine. These will only be executed once when a new instance is created"
   default     = []
 }
@@ -291,13 +292,13 @@ variable "resource_windows_administrator_password" {
 }
 
 variable "resource_windows_custom_user_username" {
-  type        = "list"
+  type        = list(string)
   description = "List of custom usernames for Windows login that needs to be created on resource pc"
   default     = []
 }
 
 variable "resource_windows_custom_user_password" {
-  type        = "list"
+  type        = list(string)
   description = "List of passwords for Windows login mapped to custom usernames for resource pc"
   default     = []
 }
@@ -314,11 +315,11 @@ variable "resource_disable_api_termination" {
 
 variable "resource_root_volume_size" {
   description = "Root volume size for Blue Prism resource in GB"
-  default     = 30 
+  default     = 30
 }
 
-variable "resource_private_ip" { 
-  type        = "list" 
+variable "resource_private_ip" {
+  type        = list(string)
   description = "List of Private IPs for the Blue Prism resource. This module will automatically generate the count value based on the number of elements in the list"
 }
 
@@ -327,14 +328,15 @@ variable "resource_key_name" {
   default     = ""
 }
 
-variable "resource_sg_ingress_cidr" { 
-  type        = "list"
+variable "resource_sg_ingress_cidr" {
+  type        = list(string)
   description = "CIDR IP range from which Blue Prism resource can be accessed directly"
-  default     = [ "0.0.0.0/0" ]
+  default     = ["0.0.0.0/0"]
 }
 
 variable "resource_custom_powershell_commands" {
-  type        = "list"
+  type        = list(string)
   description = "List of custom powershell commands you would like to run while creating a Blue Prism Resource pc. These will only be executed once when a new instance is created"
   default     = []
 }
+
