@@ -107,7 +107,7 @@ variable "db_snapshot_identifier" {
 
 variable "db_storage_encrypted" {
   description = "Specifies whether the DB instance is encrypted"
-  default     = "false"
+  default     = false
 }
 
 variable "db_kms_key_id" {
@@ -117,7 +117,7 @@ variable "db_kms_key_id" {
 
 variable "db_deletion_protection" {
   description = "Allows user to enable accidental Deletion Protection for Blueprism RDS Database"
-  default     = "false"
+  default     = false
 }
 
 variable "db_backup_retention_period" {
