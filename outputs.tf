@@ -18,6 +18,11 @@ output "appserver_private_ip" {
   value       = aws_instance.blueprism_appserver.*.private_ip
 }
 
+output "appserver_public_ip" {
+  description = "The list of public ips for all Blue Prism appservers created"
+  value       = aws_instance.blueprism_appserver.*.public_ip
+}
+
 output "appserver_instance_id" {
   description = "The list of instance ids for all Blue Prism appservers created"
   value       = aws_instance.blueprism_appserver.*.id
@@ -38,6 +43,11 @@ output "client_private_ip" {
   value       = aws_instance.blueprism_client.*.private_ip
 }
 
+output "client_public_ip" {
+  description = "The list of public ips for all Blue Prism clients created"
+  value       = aws_instance.blueprism_client.*.public_ip
+}
+
 output "client_instance_id" {
   description = "The list of instance ids for all Blue Prism clients created"
   value       = aws_instance.blueprism_client.*.id
@@ -56,6 +66,11 @@ output "client_hostname" {
 output "resource_private_ip" {
   description = "The list of private ips for all Blue Prism resource pcs created"
   value       = aws_instance.blueprism_resource.*.private_ip
+}
+
+output "resource_public_ip" {
+  description = "The list of public ips for all Blue Prism resource pcs created"
+  value       = aws_instance.blueprism_resource.*.public_ip
 }
 
 output "resource_instance_id" {
